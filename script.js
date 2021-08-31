@@ -11,5 +11,10 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function addTodo() {
-  alert('Boton Add TODO clickeado!')
+  const newLi = document.createElement('li')
+  const text = document.createTextNode('New item')
+  newLi.className = classNames.TODO_ITEM
+  text.className = classNames.TODO_TEXT
+  newLi.appendChild(text)
+  list.appendChild(newLi)
 }
