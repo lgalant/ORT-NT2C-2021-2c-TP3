@@ -9,9 +9,10 @@ const classNames = {
 const list = document.getElementById('todo-list');
 const itemCountSpan = document.getElementById('item-count');
 const uncheckedCountSpan = document.getElementById('unchecked-count');
+const buscarInput = document.getElementById('Buscar');
 
-let tareas = [];
-
+let tareas = []; // mantengo todas las tareas originales
+let tareasRender = [];
 
 class Tarea {
   constructor(texto_todo) {
@@ -26,7 +27,13 @@ function addTodo() {
   texto_prompt = prompt("Tarea a realizar");
   tarea = new Tarea(texto_prompt);
   tareas.push(tarea);
-  
+  tareasRender = [...tareas];
+  buscarInput.value = '';
+  render();
+}
+
+function buscarTodo() {
+  tareasRender = tareas.filter(t => t.texto.toLowerCase().includes(buscarInput.value.toLowerCase()));
   render();
 }
 
@@ -34,7 +41,7 @@ function addTodo() {
 function render() {
   list.innerHTML = "";
   let uncheckedCount = 0;
-  tareas.forEach((tarea) => {
+  tareasRender.forEach((tarea) => {
     const todo_item = document.createElement("li");
     todo_item.className = classNames.TODO_ITEM;
 
@@ -55,7 +62,7 @@ function render() {
     list.appendChild(todo_item);
   });
 
-  itemCountSpan.innerText = tareas.length;
+  itemCountSpan.innerText = tareasRender.length;
   
   uncheckedCountSpan.innerText = uncheckedCount;
 }
