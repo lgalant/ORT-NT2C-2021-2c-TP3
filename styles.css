@@ -29,7 +29,7 @@ ul {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(174, 206, 255);
   height: 100vh;
 }
 
