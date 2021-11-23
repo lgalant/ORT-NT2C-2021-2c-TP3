@@ -50,6 +50,7 @@ ul {
 
 .todo-delete {
   margin: 10px;
+  float: right;
 }
 
 .todo-checkbox {
@@ -63,4 +64,8 @@ ul {
 
 .todo-container:first-of-type {
   border-top: 1px solid #333;
+}
+
+.todo-container-checked {
+  text-decoration: line-through;
 }
